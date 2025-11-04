@@ -8,3 +8,22 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ 
+/* Types index */
+.type-element {
+    margin: 12px 0;
+    list-style-type: none;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.type-link {
+    text-decoration: none;
+    color: #40acbd;
+}
+
+.type-icon {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+}

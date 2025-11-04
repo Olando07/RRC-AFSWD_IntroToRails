@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title><%= content_for(:title) || "Agile Fswd Intro To Rails" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,11 +19,22 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <nav class="navbar is-primary center">
+        <%= link_to "All pokemons", root_path, class:"navbar-item" %>
+        <%= link_to "Trainers", trainers_path, class:"navbar-item" %>
+        <%= link_to "Abilities", abilities_path, class:"navbar-item" %>
+        <%= link_to "Types", types_path, class:"navbar-item" %>
+        <%= link_to "About", about_path, class:"navbar-item" %>
+    </nav>
+    <div class="my-4 mx-6">
+        <%= yield %>
+    </div>
+</body>
+
 </html>

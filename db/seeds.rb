@@ -78,7 +78,7 @@ pokemon_list.each do |poke_data|
     # Add abilities
     details["abilities"].each do |ability_info|
       ability_name = ability_info["ability"]["name"].split("-").map(&:capitalize).join("")
-      ability = Ability.find_by(name: ability_name)
+      ability = Ability.find_by(name: ability_name) || "No description"
       pokemon.abilities << ability if ability
     end
     print "."
@@ -124,7 +124,7 @@ puts ""
 
 
 
-puts "\n🎉 SEEDING COMPLETE!"
+puts "\n SEEDING COMPLETE!"
 puts "📊 Summary:"
 puts "  - #{Pokemon.count} Pokemon"
 puts "  - #{Type.count} Types"

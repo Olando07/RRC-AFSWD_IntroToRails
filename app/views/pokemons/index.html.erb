@@ -1,0 +1,30 @@
+<h1>
+    All pokemons
+</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Pokemon</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Base Experience</th>
+            <th>Sprite</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @pokemons.each do |pokemon|%>
+        <tr>
+            <td><%= pokemon.id %></td>
+            <td><%= pokemon.name %></td>
+            <td><%= pokemon.height %></td>
+            <td><%= pokemon.weight %></td>
+            <td><%= pokemon.base_experience %></td>
+            <% begin %>
+            <td><%= link_to "View Details", pokemon_path(pokemon) %></td>
+            <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

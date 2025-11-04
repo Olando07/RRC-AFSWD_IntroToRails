@@ -5,6 +5,28 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # Root path
+  root "pokemons#index"
+
+  # About path
+  get "about", to: "pages#about"
+
+  # Pokemons path
+  get "pokemons", to: "pokemons#index"
+  get "pokemons/:id", to: "pokemons#show", as: :pokemon
+
+  # Types path
+  get "types", to: "types#index"
+  get "types/:id", to: "types#show", as: :type
+
+  # Trainers path
+  get "trainers", to: "trainers#index"
+  get "trainers/:id", to: "trainers#show", as: :trainer
+
+  # Abilities path
+  get "abilities", to: "abilities#index"
+  get "abilities/:id", to: "abilities#show", as: :ability
+
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

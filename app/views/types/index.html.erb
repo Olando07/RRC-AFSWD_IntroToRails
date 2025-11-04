@@ -1,0 +1,13 @@
+<h1 class="is-size-4">
+    Pokemon Types
+</h1>
+
+<h2 class="is-size-5">Below are the different groups a pokemon may be in:</h2>
+<div class="fixed-grid has-2-cols">
+    <% @types.where.not(name: ['Stellar', 'Unknown']).each do |type| %>
+    <div class="cell is-column-min-10 type-element">
+        <%= link_to type.name, type_path(type), class:"type-link" %>
+        <%= image_tag "/icons/#{type.name.downcase}.ico", alt: type.name, class:"type-icon"%>
+    </div>
+    <% end %>
+</div>

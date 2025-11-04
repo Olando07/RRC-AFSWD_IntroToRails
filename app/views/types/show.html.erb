@@ -1,0 +1,12 @@
+<h1>
+    <%= @type.name%> Type
+</h1>
+
+<h2>Pokemon with this type:</h2>
+<ul>
+    <% @type.pokemons.each do |pokemon| %>
+    <li>
+        <%= pokemon.name %>
+    </li>
+    <% end %>
+</ul>

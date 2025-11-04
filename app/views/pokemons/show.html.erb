@@ -1,0 +1,43 @@
+<h2>
+    <%= @pokemon.name %>
+</h2>
+
+<div class="pokemon-card">
+    <div>
+        <%= image_tag @pokemon.sprite_url, alt: @pokemon.name %>
+        <p>Height: <%= @pokemon.height / 10 %> meter/s</p>
+        <p>Weight: <%= @pokemon.weight / 10 %> kilogram/s</p>
+        <p>Base Experience: <%= @pokemon.base_experience %></p>
+    </div>
+
+    <div>
+        <h3>Types</h3>
+        <ul>
+            <% @pokemon.types.each do |type| %>
+            <li>
+                <%= type.name %>
+            </li>
+            <% end %>
+        </ul>
+        <% if @pokemon.abilities.any? %>
+        <h3>Abilities</h3>
+        <ul>
+            <% @pokemon.abilities.each do |ability| %>
+            <li>
+                <%= ability.name %>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+        <% if @pokemon.trainers.any? %>
+        <h3>Trainers</h3>
+        <ul>
+            <% @pokemon.trainers.each do |trainer| %>
+            <li>
+                <%= trainer.name %>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+    </div>
+</div>

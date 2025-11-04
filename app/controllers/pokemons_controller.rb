@@ -1,6 +1,6 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all.order("RANDOM()").limit(25)
+    @pokemons = Pokemon.all.limit(20)
   end
 
   def show

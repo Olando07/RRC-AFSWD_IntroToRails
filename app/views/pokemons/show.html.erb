@@ -1,43 +1,36 @@
-<h2>
-    <%= @pokemon.name %>
-</h2>
-
-<div class="pokemon-card">
-    <div>
-        <%= image_tag @pokemon.sprite_url, alt: @pokemon.name %>
-        <p>Height: <%= @pokemon.height / 10 %> meter/s</p>
-        <p>Weight: <%= @pokemon.weight / 10 %> kilogram/s</p>
-        <p>Base Experience: <%= @pokemon.base_experience %></p>
+<div class="container pokemon-card-container">
+    <div class="pokemon-header has-text-centered">
+        <h2 class="is-size-4">
+            <%= @pokemon.name %>
+        </h2>
     </div>
 
-    <div>
-        <h3>Types</h3>
-        <ul>
-            <% @pokemon.types.each do |type| %>
-            <li>
-                <%= type.name %>
-            </li>
+    <div class="pokemon-card">
+        <div class="pokemon-stats has-text-centered">
+            <%= image_tag @pokemon.sprite_url, alt: @pokemon.name, class:"pokemon-img-show" %>
+            <p>Height: <%= @pokemon.height / 10 %> meter/s</p>
+            <p>Weight: <%= @pokemon.weight / 10 %> kilogram/s</p>
+            <p>Base Experience: <%= @pokemon.base_experience %></p>
+        </div>
+
+        <div class="pokemon-info has-text-centered">
+            <p>
+                <strong>Types:<strong>
+
+                        <%= @pokemon.types.map(&:name).join(", ") %>
+            </p>
+
+            <% if @pokemon.abilities.any? %>
+            <p>Abilities:
+                <%= @pokemon.abilities.map(&:name).join(", ") %>
+            </p>
             <% end %>
-        </ul>
-        <% if @pokemon.abilities.any? %>
-        <h3>Abilities</h3>
-        <ul>
-            <% @pokemon.abilities.each do |ability| %>
-            <li>
-                <%= ability.name %>
-            </li>
+
+            <% if @pokemon.trainers.any? %>
+            <p><strong>Trainers:</strong>
+                <%= @pokemon.trainers.map(&:name).join(", ") %>
+            </p>
             <% end %>
-        </ul>
-        <% end %>
-        <% if @pokemon.trainers.any? %>
-        <h3>Trainers</h3>
-        <ul>
-            <% @pokemon.trainers.each do |trainer| %>
-            <li>
-                <%= trainer.name %>
-            </li>
-            <% end %>
-        </ul>
-        <% end %>
+        </div>
     </div>
 </div>

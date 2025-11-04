@@ -1,12 +1,23 @@
-<h1>
-    <%= @type.name%> Type
-</h1>
+<div class="container types-show-container">
+    <div class="type-header">
+        <h1 class="is-size-4">
+            <%= @type.name%> Type
+        </h1>
+        <h2 class="is-size-5">Pokemon with this type:</h2>
+    </div>
 
-<h2>Pokemon with this type:</h2>
-<ul>
-    <% @type.pokemons.each do |pokemon| %>
-    <li>
-        <%= pokemon.name %>
-    </li>
-    <% end %>
-</ul>
+    <div class="grid is-col-min-15 mx-4 type-div">
+        <% if @type.pokemons.any? %>
+        <% @type.pokemons.each do |pokemon| %>
+        <div class="cell type-element has-text-centered">
+            <%= link_to pokemon.name, pokemon_path(pokemon) %>
+            <%= image_tag pokemon.sprite_url, al: pokemon.name, class: "pokemon-img" %>
+        </div>
+        <% end %>
+        <% else %>
+        <div class="has-text-centered is-size-4 my-6">
+            Unfortunately, there are no pokemons with this type😢
+        </div>
+        <% end %>
+    </div>
+</div>

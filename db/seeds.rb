@@ -53,7 +53,7 @@ puts ""
 
 
 puts "🎮Fetching pokemons from PokeAPI..."
-pokemon_response = URI.open("https://pokeapi.co/api/v2/pokemon?limit=100").read
+pokemon_response = URI.open("https://pokeapi.co/api/v2/pokemon?limit=150").read
 pokemon_list = JSON.parse(pokemon_response)["results"]
 
 pokemon_list.each do |poke_data|
@@ -95,7 +95,7 @@ puts ""
 
 
 puts "👤Creating trainers with Faker..."
-20.times do 
+30.times do 
   Trainer.create!(
     name: Faker::Name.name,
     hometown: Faker::Address.city

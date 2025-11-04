@@ -8,13 +8,66 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Page styles */
+.body-div {
+    margin: 3.5rem 4rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Pokemon index */
+.pokemon-header {
+    margin: 3rem 0;
+}
+
+.navbar-item {
+  border-bottom: 5px solid transparent;
+  transition: border-bottom-color 0.3s;
+  margin: 0.6rem 0 0;
+}
+
+.navbar-item.is-active {
+  border-bottom-color: #dc3232; /* Bulma primary blue */
+  color: #dc3232;
+}
+
+.navbar-item:hover {
+  border-bottom-color: #dc3232;
+  opacity: 0.7;
+}
+
+/* Pokemon show */
+.pokemon-card-container {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+.pokemon-img-show {
+    width: 220px;
+    height: 220px;
+}
+
+.pokemon-card {
+    font-size: 18px;
+}
+
+.pokemon-info {
+    margin: 1rem 0;
+}
  
 /* Types index */
+.type-header {
+    margin-left: 10.4rem;
+}
+
+.type-div {
+    margin: 3rem 0;
+}
+
 .type-element {
     margin: 12px 0;
     list-style-type: none;
     font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .type-link {
@@ -23,7 +76,13 @@
 }
 
 .type-icon {
-    width: 28px;
-    height: 28px;
+    width: 45px;
+    height: 45px;
+    vertical-align: middle;
+}
+
+.pokemon-img {
+    width: 130px;
+    height: 130px;
     vertical-align: middle;
 }

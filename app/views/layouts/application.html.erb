@@ -25,21 +25,11 @@
 </head>
 
 <body>
-    <nav class="navbar is-warning">
-        <%
-=begin%>
-        <div class="navbar-brand">
-            <h1>
-                Pokemon App
-            </h1>
-        </div>
-        <%
-=end%>
-        <%= link_to "All pokemons", root_path, class:"navbar-item #{("is-active") if controller_name == "pokemons"}" %>
-        <%= link_to "Trainers", trainers_path, class:"navbar-item #{("is-active") if controller_name == "trainers"}"%>
-        <%= link_to "Abilities", abilities_path, class:"navbar-item #{("is-active") if controller_name == "abilities"}" %>
-        <%= link_to "Types", types_path, class:"navbar-item #{("is-active") if controller_name == "types"}" %>
-        <%= link_to "About", about_path, class:"navbar-item" %>
+    <nav class="navbar is-transparent center pokemon-navbar">
+        <%= link_to "All pokemons", root_path, class:"button is-info is-inverted #{("is-active") if controller_name == "pokemons"}" %>
+        <%= link_to "Trainers", trainers_path, class:"button is-info is-inverted #{("is-active") if controller_name == "trainers"}"%>
+        <%= link_to "Types", types_path, class:"button is-info is-inverted #{("is-active") if controller_name == "types"}" %>
+        <%= link_to "About", about_path, class:"button is-info is-inverted #{("is-active") if controller_name == "about"}" %>
     </nav>
     <div class="body-div center">
         <%= yield %>

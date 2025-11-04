@@ -15,25 +15,17 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Navbar styles */
+.pokemon-navbar {
+    gap: 4rem;
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem;
+}
+
 /* Pokemon index */
 .pokemon-header {
     margin: 3rem 0;
-}
-
-.navbar-item {
-  border-bottom: 5px solid transparent;
-  transition: border-bottom-color 0.3s;
-  margin: 0.6rem 0 0;
-}
-
-.navbar-item.is-active {
-  border-bottom-color: #dc3232; /* Bulma primary blue */
-  color: #dc3232;
-}
-
-.navbar-item:hover {
-  border-bottom-color: #dc3232;
-  opacity: 0.7;
 }
 
 /* Pokemon show */
@@ -55,16 +47,16 @@
     margin: 1rem 0;
 }
  
-/* Types index */
-.type-header {
+/* Types and Trainer index */
+.type-header, .trainer-header {
     margin-left: 10.4rem;
 }
 
-.type-div {
+.type-div, .trainer-div {
     margin: 3rem 0;
 }
 
-.type-element {
+.type-element, .trainer-element {
     margin: 12px 0;
     list-style-type: none;
     font-size: 18px;

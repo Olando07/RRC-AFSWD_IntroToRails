@@ -1,2 +1,23 @@
-<h1>Trainers#show</h1>
-<p>Find me in app/views/trainers/show.html.erb</p>
+<div class="container trainers-show-container">
+    <div class="trainer-header">
+        <h1 class="is-size-4">
+            <%= @trainer.name%>
+        </h1>
+        <h2 class="is-size-5">Pokemons this trainer owns:</h2>
+    </div>
+
+    <div class="grid is-col-min-15 mx-4 type-div">
+        <% if @trainer.pokemons.any? %>
+        <% @trainer.pokemons.each do |pokemon| %>
+        <div class="cell trainer-element has-text-centered">
+            <%= link_to pokemon.name, pokemon_path(pokemon) %>
+            <%= image_tag pokemon.sprite_url, al: pokemon.name, class: "pokemon-img" %>
+        </div>
+        <% end %>
+        <% else %>
+        <div class="has-text-centered is-size-4 my-6">
+            Unfortunately, there are no pokemons with this trainer😢
+        </div>
+        <% end %>
+    </div>
+</div>

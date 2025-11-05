@@ -5,6 +5,15 @@
         </h1>
     </div>
 
+    <div class="center has-text-centered search-div">
+        <div id="search-input">
+            <input class="input is-info is-inverted pokemon-search" placeholder="Search for a pokemon" />
+        </div>
+        <div id="search-results" class="dropdown-menu">
+            <div class="dropdown-content">
+            </div>
+        </div>
+    </div>
     <table class="all-pokemon container center table ">
         <thead class="pokemon-head">
             <tr class="pokemon-head-row">
@@ -31,4 +40,22 @@
             <% end %>
         </tbody>
     </table>
+    <nav class="pagination is-centered is-info is-inverted">
+        <% if @pokemons.prev_page %>
+        <%= link_to "← Previous", pokemons_path(page: @pokemons.prev_page), class:"pagination-previous #{"is-disabled" unless  @pokemons.prev_page}" %>
+        <% else %>
+        <a class="pagination-previous" disabled>← Previous</a>
+        <% end %>
+        <% if @pokemons.next_page %>
+        <%= link_to "Next →", pokemons_path(page: @pokemons.next_page), class:"pagination-next #{"is-disabled" unless  @pokemons.next_page}" %>
+        <% else %>
+        <a class="pagination-next" disabled>Next →</a>
+        <% end %>
+
+        <ul class="pagination-list">
+            <% (1..@pokemons.total_pages).each do |page_num| %>
+            <%= link_to page_num, pokemons_path(page: page_num), class:"pagination-link #{page_num == @pokemons.current_page ? "is-current" : ""}" %>
+            <% end %>
+        </ul>
+    </nav>
 </div>

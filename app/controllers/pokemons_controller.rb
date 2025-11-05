@@ -1,6 +1,19 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all.limit(20)
+    @pokemons = Pokemon.order(:name).page(params[:page]).per(20)
+  end
+
+  def search
+    query = params[:query].to_s.downcase
+    @pokemons= Pokemon.where("LOWER(name) LIKE ?", "%#{query}%").limit(10)
+
+    render json: @pokemons.map { |p|
+      {
+        id: p.id,
+        name: p.name,
+        sprite_url: p.sprite_url
+      }
+    }
   end
 
   def show

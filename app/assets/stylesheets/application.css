@@ -15,17 +15,30 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.pagination {
+    margin: 4rem 0;
+}
+
+.pokemon-search {
+    margin: 1rem 0;
+    width: 560px;
+}
+
+.search-div {
+    margin: 0 0 6rem;
+}
+
 /* Navbar styles */
 .pokemon-navbar {
     gap: 4rem;
     display: flex;
     justify-content: center;
-    margin: 2.5rem;
+    margin: 3rem 0;
 }
 
 /* Pokemon index */
 .pokemon-header {
-    margin: 3rem 0;
+    margin: 5rem 0 0;
 }
 
 /* Pokemon show */

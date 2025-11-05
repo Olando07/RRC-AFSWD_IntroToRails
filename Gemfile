@@ -18,7 +18,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Faker
 gem "faker"
+# Bulma css library
 gem "bulma-rails"
+# Pagination
+gem "kaminari"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

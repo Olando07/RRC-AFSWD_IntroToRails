@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Pokemons path
   get "pokemons", to: "pokemons#index"
+  get "pokemons/search", to: "pokemons#search"
   get "pokemons/:id", to: "pokemons#show", as: :pokemon
 
   # Types path

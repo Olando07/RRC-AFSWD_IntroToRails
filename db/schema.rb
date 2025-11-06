@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_31_211402) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_06_193817) do
   create_table "abilities", force: :cascade do |t|
     t.string "name"
     t.text "effect"
@@ -66,6 +66,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_31_211402) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "location_name"
   end
 
   add_foreign_key "pokemon_abilities", "abilities"

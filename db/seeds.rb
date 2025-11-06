@@ -32,6 +32,44 @@ puts "Created #{Type.count} pokemon types"
 puts "-----------------------------------------------------------------"
 puts ""
 
+# Add locations to types (fictional regions where these types are commonly found)
+type_locations = {
+  'Normal' => { lat: 40.7128, lng: -74.0060, location: 'New York City, USA' },
+  'Fire' => { lat: -23.5505, lng: -46.6333, location: 'São Paulo, Brazil' },
+  'Water' => { lat: -33.8688, lng: 151.2093, location: 'Sydney, Australia' },
+  'Electric' => { lat: 35.6762, lng: 139.6503, location: 'Tokyo, Japan' },
+  'Grass' => { lat: -3.4653, lng: -62.2159, location: 'Amazon Rainforest, Brazil' },
+  'Ice' => { lat: 64.2008, lng: -149.4937, location: 'Fairbanks, Alaska' },
+  'Fighting' => { lat: 22.3193, lng: 114.1694, location: 'Hong Kong' },
+  'Poison' => { lat: 55.7558, lng: 37.6173, location: 'Moscow, Russia' },
+  'Ground' => { lat: -23.4425, lng: -70.4487, location: 'Atacama Desert, Chile' },
+  'Flying' => { lat: 27.1751, lng: 78.0421, location: 'Agra, India' },
+  'Psychic' => { lat: 27.9881, lng: 86.9250, location: 'Mount Everest, Nepal' },
+  'Bug' => { lat: -0.7893, lng: 113.9213, location: 'Borneo, Indonesia' },
+  'Rock' => { lat: 36.0544, lng: -112.1401, location: 'Grand Canyon, USA' },
+  'Ghost' => { lat: 51.5074, lng: -0.1278, location: 'London, UK' },
+  'Dragon' => { lat: 39.9042, lng: 116.4074, location: 'Beijing, China' },
+  'Dark' => { lat: 48.8566, lng: 2.3522, location: 'Paris, France' },
+  'Steel' => { lat: 51.1657, lng: 10.4515, location: 'Berlin, Germany' },
+  'Fairy' => { lat: 64.9631, lng: -19.0208, location: 'Iceland' }
+}
+
+type_locations.each do |type_name, data|
+  type = Type.find_by(name: type_name)
+  if type
+    type.update(
+      latitude: data[:lat],
+      longitude: data[:lng],
+      location_name: data[:location]
+    )
+  end
+end
+puts ""
+puts "-----------------------------------------------------------------"
+puts "Created locations for pokemons"
+puts "-----------------------------------------------------------------"
+puts ""
+
 
 puts "⚡Fetching abilities from PokeAPI..."
 abilities_response = URI.open("https://pokeapi.co/api/v2/ability?limit=50").read

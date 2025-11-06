@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultsContainer = searchResults.querySelector('.dropdown-content');
 
         if (pokemons.length === 0) {
-            resultsContainer.innerHTML = '<div class="dropdown-item">No pokemon Found</div>';
+            resultsContainer.innerHTML = '<div class="dropdown-item" style="font-size: 18px; color:black;">No pokemon Found</div>';
             searchResults.style.display = "block";
             return;
         }
 
         resultsContainer.innerHTML = pokemons.map(pokemon => `
-            <a href="/pokemons/${pokemon.id}" class="dropdown-item" style="display: flex; align-items: center; padding: 0.5rem 1rem;">
-            <img src="${pokemon.sprite_url}" alt="${pokemon.name}" style="width: 40px; height: 40px; margin-right: 1rem;">
-            <span>${pokemon.name}</span></a>`).join('');
+            <a href="/pokemons/${pokemon.id}" class="dropdown-item" style="display: flex; align-items: center; padding: 0.2rem 1rem;">
+            <img src="${pokemon.sprite_url}" alt="${pokemon.name}" style="width: 70px; height: 70px; margin: 0 3rem 0 2rem;">
+            <span style="font-size: 18px; color:black;">${pokemon.name}</span></a>`).join('');
         
         searchResults.style.display = "block";
     }

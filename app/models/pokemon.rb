@@ -9,6 +9,5 @@ class Pokemon < ApplicationRecord
   has_many :trainers, through: :pokemon_trainers
 
   validates :name, presence: true, uniqueness: true
-  validates :latitude, :longitude, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }, allow_nil: true
 end

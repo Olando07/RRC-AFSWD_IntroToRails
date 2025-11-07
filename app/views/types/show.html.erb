@@ -6,6 +6,31 @@
         <h2 class="is-size-5">Pokemon with this type:</h2>
     </div>
 
+    <div id="map" data-lat="<%= @type.latitude %>" data-lon="<%= @type.longitude %>" data-name="<%= @type.name %>" data-location="<%= @type.location_name %>" style="height: 400px; width: 100%; margin-top: 20px;">
+    </div>
+
+    <script>
+        document.addEventListener("turbo:load", function() {
+            var mapDiv = document.getElementById("map");
+
+            var lat = parseFloat(mapDiv.dataset.lat) || 0;
+            var lon = parseFloat(mapDiv.dataset.lon) || 0;
+            var name = mapDiv.dataset.name;
+            var locationName = mapDiv.dataset.location;
+
+            var map = L.map('map').setView([lat, lon], 5);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OSM'
+            }).addTo(map);
+
+            if (lat && lon) {
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup(`<b>${name} Type</b><br>${locationName}`);
+            }
+        });
+    </script>
+
     <div class="grid is-col-min-15 mx-4 type-div">
         <% if @type.pokemons.any? %>
         <% @type.pokemons.each do |pokemon| %>
